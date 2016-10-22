@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>多级菜单</title>
     <style>
 
         *{
@@ -84,8 +84,7 @@
         var oUl = document.getElementById("menu");
         //var aLi = oUl.getElementsByClassName("main-menu");
         var aLi = oUl.getElementsByTagName("li");
-        //12li  3class='main-menu'
- //       alert(aLi[0].className);
+
        for(var i=0;i<aLi.length;i++){
            if(aLi[i].className == 'main-menu'){
                 aLi[i].onmouseover = function(){

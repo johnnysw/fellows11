@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>折叠菜单</title>
 </head>
 <style>
 
@@ -78,9 +78,7 @@
     for(var i=0;i<aLi.length;i++){
        if(aLi[i].className == 'main-menu'){
            aLi[i].onclick = function(){
-
                var oMenu = this.getElementsByTagName('ul')[0];
-               // alert(oMenu.style.display);
                if(oMenu.style.display == 'block'){
                    oMenu.style.display = 'none';
                }else{

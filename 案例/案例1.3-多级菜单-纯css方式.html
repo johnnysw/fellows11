@@ -47,7 +47,9 @@
 
         }
         /*权重值：id 100 ,class 10 ,tag 1*/
-
+        #menu .main-menu:hover .sub-menu{
+            display: block;
+        }
     </style>
 
 </head>
@@ -79,52 +81,5 @@
         </li>
     </ul>
 
-    <script>
-
-        var oUl = document.getElementById("menu");
-        //var aLi = oUl.getElementsByClassName("main-menu");
-
-        var aLi = oUl.children;
-
-        for(var i=0;i<aLi.length;i++){
-            aLi[i].onmouseover = function(){
-                var oSubMenu = this.children[1];
-                oSubMenu.style.display = 'block';
-            }
-
-            aLi[i].onmouseout = function(){
-                var oSubMenu = this.children[1];
-                oSubMenu.style.display = 'none';
-            }
-        }
-
-
-
-
-
-
-
-
-        /*var aLi = oUl.getElementsByTagName("li");
-
-       for(var i=0;i<aLi.length;i++){
-           if(aLi[i].className == 'main-menu'){
-                aLi[i].onmouseover = function(){
-                    var oSubMenu = this.getElementsByTagName("ul")[0];//[ul][0]
-                    //var oSubMenu = aUl[0];
-                    oSubMenu.style.display = 'block';
-                }
-
-               aLi[i].onmouseout = function(){
-                   var oSubMenu = this.getElementsByTagName("ul")[0];
-                   //var oSubMenu = aUl[0];
-                   oSubMenu.style.display = 'none';
-               }
-           }
-       }*/
-
-
-
-    </script>
 </body>
 </html>

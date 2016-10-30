@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <title>复习</title>
+        <style>
+            /*h1{*/
+                /*background: #00ff00;*/
+            /*}*/
+            #h1{
+                background: #ff0000;
+                display: none;
+                /*visibility: hidden;*/
+            }
+            /*.hh{*/
+                /*background: #ffff00;*/
+            /*}*/
+
+            /*input[name]{*/
+
+            /*}*/
+        </style>
+        <!--<link rel="stylesheet" href="xx.css">-->
+    </head>
+    <body>
+        <input type="text" name="aa">
+        <input type="text" name="aa">
+        <input type="text">
+
+
+        <h1 id="h1" class="hh">h1</h1>
+        <p>ppppp</p>
+        <a href="http://www.baidu.com" target="_blank">baidu</a>
+        <div>div+css</div>
+        <table>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>44</td>
+            </tr>
+        </table>
+        <ul>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+        </ul>
+        <ol>
+            <li>00&nbsp;1</li>
+            <li>00&gt;2</li>
+            <li>00&#60;3</li>
+        </ol>
+        <span>span</span>
+        <img src="" alt="图片加载失败" title="图片">
+        <button>按钮</button>
+        <label for="ipt">label:
+            <input type="text" id="ipt">
+        </label>
+        <div>
+            <p></p>
+        </div>
+
+
+        <script>
+            var a = 5;
+            var b = 0.5;
+            var c = "abc";
+            var d = true;
+            var e;
+            var f = document.getElementById("aaaaa");
+//            console.log(e);//undefined
+//            console.log(f);//null
+//
+//            console.log(typeof e);
+//            console.log(typeof f);
+//
+//            console.log(e == f);
+//            console.log(undefined === null);
+            /*number string boolean undefined null*/
+
+
+            var obj = {
+                name : "zhangsan",
+                age : 18,
+                school : "黑大"
+            };
+//            var obj1 = new Object();
+//            obj1.name = "lisi";
+//            obj2.age = 20;
+            for(var p in obj){
+//                console.log(p + ":" + obj[p]);
+            }
+
+            var arr = [1, 2, 3, 4];
+            for(var p in arr){
+//                console.log(p + ":" + arr[p]);
+            }
+
+            aa();
+            function aa(){
+                console.log("aaaaa");
+            }
+
+            bb();
+            var bb = function(){//new Function()
+                console.log("bbbb");
+            };
+
+        </script>
+    </body>
+</html>
+<!--
+行级元素inline
+块级元素block
+
+选择器:
+1、标签/元素选择器
+2、id选择器  #id
+3、类选择器  .class
+4、后代选择器  div p{}
+5、子代选择器  div>p{}
+6、伪类选择器 :hover
+7、分组选择器  div,p{}
+8、兄弟选择器
+9、属性选择器
+
+display:none block inline inline-block
+
+
+
+权重值：id100  class10  tag1
+-->

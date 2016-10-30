@@ -13,7 +13,7 @@
             height: 200px;
             background: #ff0000;
             cursor: pointer;
-            position: relative;
+            position: absolute;
         }
     </style>
 </head>
@@ -37,7 +37,7 @@
                     return false;
                 };
             };
-            oDrag.onmouseup = function(){
+            document.onmouseup = function(){
                 document.onmousemove = null;
             };
         })();

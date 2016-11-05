@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var oDiv = document.getElementById("div1");
+//        alert(oDiv.currentStyle.width);
+//        alert(getComputedStyle(oDiv, false).width);
+
+        var aa = getStyle(oDiv, "backgroundColor");
+        alert(aa);
+        /*获取相应的对象下面的属性的值*/
+        function getStyle(elem, prop){
+            if(elem.currentStyle){
+                return elem.currentStyle[prop];
+            }else if(getComputedStyle){
+                return getComputedStyle(elem, null)[prop];
+            }
+        }
+
+//        function aa(a, b, c){
+//            console.log(a);
+//            console.log(b);
+//            console.log(c);
+//        }
+//        aa(2, 3);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

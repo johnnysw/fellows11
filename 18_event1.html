@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+    <script>
+        var oUl = document.getElementById("ul1");
+//        var aLi = oUl.getElementsByTagName("li");
+//        for(var i=0; i<aLi.length; i++){
+//            aLi[i].onclick = function(){
+//                alert(this.innerHTML);
+//            };
+//        }
+        /*事件代理/事件委托*/
+        oUl.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            alert(target.innerHTML);
+        };
+    </script>
+
+
+</body>
+</html>

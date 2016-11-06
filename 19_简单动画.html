@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">移动</button>
+    <div id="div1">haha</div>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oDiv1 = document.getElementById('div1');
+        oBtn.onclick = function(){
+            oDiv1.style.left = oDiv1.offsetLeft + 10 + 'px';
+        };
+    </script>
+</body>
+</html>

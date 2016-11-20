@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+    var date = new Date();
+
+    leapYear(2100);
+
+    function leapYear(d){
+        if( (d%400 == 0) || (d%4==0) && (d%100!=0) ){
+            console.log('是闰年');
+
+        }else{
+            console.log('不是闰年');
+        }
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

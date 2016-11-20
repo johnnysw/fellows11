@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+        //设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，
+        // 然后在页面上显示其总成绩和平均分，并列出小于60的成绩。
+        var arr = prompt('请依次输入数学，语文，英语，物理，化学，生物成绩，并用,分隔');
+        var grade = arr.split(",");
+        var newArr = ["数学","语文","英语","物理","化学","生物"];
+        var total = 0;
+        for(var i=0;i<grade.length;i++){
+            total += parseInt(grade[i]);
+            if(parseInt(grade[i]) < 60){
+                console.log(newArr[i]+"的成绩是："+ parseInt(grade[i]));
+            }
+        }
+        console.log(total);
+        console.log(total/grade.length);
+
+
+</script>
+</body>
+</html>

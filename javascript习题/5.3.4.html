@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //在页面上编程输出100~1000之间的所有素数，
+    // 并要求每行显示6个素数。
+
+
+    function aa(){
+        var arr = [];
+        for(var i=100;i<=1000;i++){
+            var bFlag = true;
+            for(var j=2;j<=i/2;j++){
+                if(i%j == 0){
+                    bFlag = false;
+                    break;
+                }
+            }
+            if(bFlag){
+                document.write(i + '&nbsp;');
+                var num = arr.push(i);
+                if(num % 6 == 0 ){
+                    document.write("<br/>");
+                }
+            }
+        }
+
+        return arr;
+    }
+    aa();
+
+//    var result = aa();
+//
+//    for(var i=0;i<result.length;i++){
+//        document.write(result[i]+"&nbsp;");
+//        if((i+1)%6 == 0){
+//            document.write('<br/>');
+//        }
+//    }
+
+
+
+</script>
+</body>
+</html>

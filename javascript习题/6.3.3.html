@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        //设计一个页面，在页面上显示信息
+        // “现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。
+
+        var date = new Date();
+        date.getFullYear();
+        date.getMonth();//+1
+        date.getDate();// 0--星期天
+
+        date.getHours();
+        date.getMinutes();
+        date.getSeconds();
+        var str = "";
+        document.write(date.toLocaleString());
+
+
+
+    </script>
+</body>
+</html>

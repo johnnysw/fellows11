@@ -54,6 +54,10 @@
             aImg[i].style.position = 'absolute';
             aImg[i].style.margin = 0;
             drag(aImg[i]);
+            aImg[i].pos = {
+                left:aImg[i].offsetLeft,
+                top:aImg[i].offsetTop
+            }
         }
 
         function drag(elem){
@@ -62,10 +66,6 @@
                 var iDisX = e.clientX - elem.offsetLeft;
                 var iDisY = e.clientY - elem.offsetTop;
                 elem.style.zIndex = zIndex++;
-                elem.pos = {
-                    left:elem.offsetLeft,
-                    top:elem.offsetTop
-                }
                 document.onmousemove = function (e) {
                     e = e || window.event;
 
@@ -97,18 +97,20 @@
                     }else{
                         nearElem = null;
                     }
-                    console.log(collide);
+                    //console.log(collide);
                     return false;
                 }
                 document.onmouseup = function(){
                     document.onmousemove = null;
 
                     if(nearElem){
-                        animate(elem,{
-                            left:nearElem.offsetLeft,
-                            top:nearElem.offsetTop
-                        })
+                        animate(elem,nearElem.pos);
                         animate(nearElem,elem.pos);
+
+                        var pos = elem.pos;
+                        elem.pos = nearElem.pos;
+                        nearElem.pos = pos;
+
                         nearElem.className = '';
                         nearElem = null;
                     }else{

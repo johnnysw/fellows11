@@ -194,7 +194,7 @@
         function changeImg(idx){
             aBigImg[idx].style.zIndex = zIndex++;
             aBigImg[idx].style.height = 0;
-            oNum.innerHTML = iNow + 1;
+            oNum.innerHTML = idx + 1;
 
             oTextLeft.innerHTML = aBigImg[idx].getElementsByTagName('img')[0].title;
 
@@ -228,8 +228,10 @@
                 }
             }
             aSmallImg[i].onclick = function(){
+                if(this.index != iNow){
+                    changeImg(this.index);
+                }
 
-                changeImg(this.index);
             }
         }
 

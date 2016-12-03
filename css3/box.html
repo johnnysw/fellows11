@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #main{
+            width: 1000px;
+            height: 500px;
+            border: 5px solid;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            /*-webkit-box-direction: reverse;*/
+            -webkit-box-pack: justify;
+            -webkit-box-align: end;
+            -webkit-box-sizing: content-box;
+        }
+        #div1,#div2,#div3{
+            font-size: 40px;
+            width: 50px;
+            height: 50px;
+            background: red;
+            border: 1px solid;
+        }
+        /*#div1{*/
+            /*-webkit-box-flex: 1;*/
+            /*-webkit-box-ordinal-group: 3;*/
+        /*}*/
+        /*#div2{*/
+            /*-webkit-box-flex: 1;*/
+            /*-webkit-box-ordinal-group: 2;*/
+        /*}*/
+        /*#div3{*/
+            /*-webkit-box-flex: 1;*/
+            /*-webkit-box-ordinal-group: 2;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+    <div id="main">
+
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+
+    </div>
+</body>
+</html>

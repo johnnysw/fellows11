@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        /*h1 ~ p{*/
+        /*background: red;*/
+        /*}*/
+
+        /*p[class~='a']{*/
+        /*background: red;*/
+        /*}*/
+
+        p[class|='aa']{
+            background: red;
+        }
+
+        a:link{
+            background: green;
+        }
+
+        a:visited{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div">
+
+    <h1></h1>
+    <p class="bb-aa-bb">1111111</p>
+    <p>222222</p>
+    <!--<a href="#">aaaaa</a>-->
+    <a href="#" target="_blank">bbbbbb</a>
+
+</div>
+</body>
+</html>

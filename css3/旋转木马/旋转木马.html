@@ -33,6 +33,7 @@
             width: 128px;
             height: 100px;
             position: absolute;
+            -webkit-transition: all 1s ease-in-out;
         }
 
     </style>
@@ -41,27 +42,63 @@
 
     <div id="state">
         <div id="container">
-            <img src="img/1.jpg" alt=""/>
-            <img src="img/2.jpg" alt=""/>
-            <img src="img/3.jpg" alt=""/>
-            <img src="img/4.jpg" alt=""/>
-            <img src="img/5.jpg" alt=""/>
-            <img src="img/6.jpg" alt=""/>
-            <img src="img/7.jpg" alt=""/>
-            <img src="img/8.jpg" alt=""/>
-            <img src="img/9.jpg" alt=""/>
+
         </div>
 
     </div>
     <script>
 
         var oContainer = document.getElementById('container');
-        var aImg = oContainer.getElementsByTagName('img');
-        var translateDis =  128 / 2 / Math.tan(20 * Math.PI/180);
 
-        for(var i=0;i<aImg.length;i++){
-            aImg[i].style.WebkitTransform = 'rotateY('+ -i*40 +'deg) translateZ('+ (translateDis+20) +'px)';
+//        for(var i=0;i<aImg.length;i++){
+//            aImg[i].style.WebkitTransition =  (9 - i) * 100 + 'ms';
+//            aImg[i].style.WebkitTransform = 'rotateY('+ -i*40 +'deg) translateZ('+ (translateDis+20) +'px)';
+//        }
+
+        var aa = 0;
+
+        for(var i=0;i<9;i++){
+            var oImg = new Image();
+
+            oImg.onload = function(){
+                aa++;
+                if(aa == 9){
+                    for(var i=0;i<aImg.length;i++){
+                        (function(index){
+                            setTimeout(function(){
+                                aImg[index].style.WebkitTransform = 'rotateY('+ -index*40 +'deg) translateZ('+ (translateDis+20) +'px)';
+                            }, (9 - i) *100)
+                        })(i);
+                    }
+                }
+            }
+            oImg.src = 'img/'+(i + 1) +'.jpg';
+            oContainer.appendChild(oImg);
         }
+        var aImg = oContainer.getElementsByTagName('img');
+
+        var translateDis =  aImg[0].offsetWidth / 2 / Math.tan(20 * Math.PI/180);
+
+
+
+
+
+
+
+
+
+
+//        var timer = null;
+//        var j = 8;
+//        var timer = setInterval(function(){
+//            if(j==0){
+//                clearInterval(timer);
+//            }
+////            aImg[j].style.WebkitTransitionDelay =  (9 - j) * 100 + 'ms';
+//            aImg[j].style.WebkitTransform = 'rotateY('+ -j*40 +'deg) translateZ('+ (translateDis+20) +'px)';
+//            j--;
+//        },100);
+
         var idx = 0;
         oContainer.onclick = function(){
             idx++;

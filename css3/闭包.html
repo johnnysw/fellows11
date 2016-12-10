@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+    <button id="btn">click</button>
+
+<script>
+
+        var aLi = document.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+//            aLi[i].index = i;
+            (function(index){
+                aLi[i].onclick = function(){
+                    console.log(index);
+                }
+            })(i);
+        }
+
+    //闭包：从表面上看，一个外部函数包含了一个内部函数，
+    // 并且内部函数调用了外部函数的局部变量，
+    // 当外部函数执行完成时，局部变量不被释放
+
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var a = 5;
+            setTimeout(function(){
+                alert(a);
+            },2000);
+
+        }
+
+
+
+//    function aa(){
+//        var a = 7;
+//    }
+//    aa();
+//    console.log(a);
+
+</script>
+</body>
+</html>

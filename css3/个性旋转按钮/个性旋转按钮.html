@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #container img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top:0;
+            left:0;
+            -webkit-transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+        <img src="img/close.png" alt=""/>
+        <img src="img/full.png" alt=""/>
+        <img src="img/open.png" alt=""/>
+        <img src="img/prev.png" alt=""/>
+        <img src="img/refresh.png" alt=""/>
+        <img id='home' src="img/home.png" alt=""/>
+
+    </div>
+    <script>
+
+        var oHome = document.getElementById('home');
+        var aImg = document.getElementsByTagName('img');
+        var bFlag = true;//设置home键打开、关闭
+        oHome.onclick = function(){
+            if(bFlag){
+                for(var i=0;i<aImg.length - 1;i++){
+                    var x = -170 * Math.sin(i * 22.5 * Math.PI/180);
+                    var y = -170 * Math.cos(i * 22.5 * Math.PI/180);
+                    aImg[i].style.WebkitTransitionDelay = i * 50 + 'ms';
+                    aImg[i].style.WebkitTransform = 'translate('+ x +'px,'+ y +'px) rotate(-360deg)';
+                }
+
+                this.style.WebkitTransform = 'rotate(-360deg)';
+            }
+            else{
+                for(var i=0;i<aImg.length - 1;i++){
+                    aImg[i].style.WebkitTransitionDuration = '1s';
+                    aImg[i].style.WebkitTransitionDelay = (aImg.length - 1 -i) * 50 + 'ms';
+                    aImg[i].style.WebkitTransform = 'translate(0px,0px) rotate(0deg)';
+                }
+                this.style.WebkitTransform = 'rotate(0deg)';
+            }
+            bFlag = !bFlag;
+        }
+
+        for(var i=0;i<aImg.length - 1;i++){
+            aImg[i].state = false;
+            aImg[i].onclick = function(){
+                if(!this.state){
+                    this.state = true;
+                    var currTransform = this.style.WebkitTransform;
+                    this.style.WebkitTransitionDuration = '0.3s';
+                    this.style.opacity = 0.6;
+                    this.style.WebkitTransform = currTransform + ' scale(2)';
+//                    var that = this;
+//                    setTimeout(function(){
+//                        that.style.opacity = 1;
+//                        that.style.WebkitTransform = currTransform;
+//                        that.state = false;
+//                    },300)
+                    function fn(){
+                        this.style.opacity = 1;
+                        this.style.WebkitTransform = currTransform;
+                        this.state = false;
+                        this.removeEventListener('webkitTransitionEnd',fn);
+                    }
+                    this.addEventListener('webkitTransitionEnd',fn,false);
+
+
+                }
+
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

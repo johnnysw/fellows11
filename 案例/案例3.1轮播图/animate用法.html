@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <script src="jslib.js"></script>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        oDiv1.onclick = function(){
+            animate(oDiv1, {
+                left: 300
+            }, function(){
+                animate(oDiv1, {
+                    top: 200
+                }, function(){
+                    animate(oDiv1, {
+                        width: 400
+                    });
+                });
+            });
+            console.log('haha');
+        };
+    </script>
+</body>
+</html>

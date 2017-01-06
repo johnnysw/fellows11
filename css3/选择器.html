@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        /*h1 ~ p{*/
+            /*background: red;*/
+        /*}*/
+
+        /*p[class~='a']{*/
+            /*background: red;*/
+        /*}*/
+
+        /*p[class|='aa']{*/
+            /*background: red;*/
+        /*}*/
+
+        /*a:link{*/
+            /*background: green;*/
+        /*}*/
+
+        /*a:visited{*/
+             /*background: red;*/
+         /*}*/
+        /*input:focus{*/
+            /*color: red;*/
+        /*}*/
+
+
+        /*p:not(.aa){*/
+            /*background: red;*/
+        /*}*/
+
+       /*#div p:nth-child(2){*/
+            /*background: red;*/
+        /*}*/
+        /*p:empty{*/
+            /*background: red;*/
+        /*}*/
+
+        /*input:disabled + p{*/
+            /*background: red;*/
+        /*}*/
+
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        /*div:first-line{*/
+            /*color: red;*/
+        /*}*/
+        /*div::after{*/
+            /*content: '';*/
+            /*width: 200px;*/
+            /*background: red;*/
+        /*}*/
+        /*input::-webkit-input-placeholder{*/
+            /*color: green;*/
+        /*}*/
+        div::selection{
+            background: red;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+aaaaaaaaaa
+    </div>
+aaaaa
+    <input type="text" placeholder="aaaa"/>
+
+</body>
+</html>

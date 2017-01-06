@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        //ABCD
+        //第4位 Math.floor(ABCD/1000);
+        //第3位 Math.floor(ABCD%1000/100);
+        //第2位 Math.floor(ABCD%100/10);
+        //第1位  ABCD%10;
+        for(var i=1000;i<10000;i++){
+            var a = Math.floor(i/1000);
+            var b = Math.floor(i%1000/100);
+            var c = Math.floor(i%100/10);
+            if(i%13 == 0 && a == b + c){
+                console.log(i);
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

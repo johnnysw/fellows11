@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #container{
+            width: 805px;
+            height: 300px;
+            margin: 100px auto;
+            /*overflow: hidden;*/
+            display: -webkit-box;
+        }
+
+        #container div{
+            width: 0;
+            -webkit-box-flex: 1;
+            overflow: hidden;
+            height: 300px;
+            -webkit-transition: all 1s ease;
+        }
+
+        #container div:hover{
+            /*-webkit-box-flex: 6;*/
+            width: 600px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><img src="img/1.jpg"><a>1</a></div>
+        <div><img src="img/2.jpg"><a>2</a></div>
+        <div><img src="img/3.jpg"><a>3</a></div>
+        <div><img src="img/4.jpg"><a>4</a></div>
+        <div><img src="img/5.jpg"><a>5</a></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    //1.	设计一个函数DayOfYear(d)，它接必一个日期参数d，
+    // 返回一个该日期是所在年份的第几天，
+    // 如DayOfYear(2000,2,8)的返回值是39.
+    function leapYear(d){
+        if( (d%400 == 0) || (d%4==0) && (d%100!=0) ){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    var arr = [31,28,31,30,31,30,31,31,30,31,30,31];
+    var d = new Date();
+    var year = d.getFullYear();
+    var month = d.getMonth();//+1
+    var date = d.getDate();// 0--星期天
+    function fn(year,month,date){
+        var a1 = leapYear(year);
+        arr[1] = arr[1] + a1;
+        var day = 0;
+        for(var i=0;i<month;i++){
+            day += arr[i];
+        }
+        day = day + date;
+        console.log(day);
+
+    }
+
+    //
+    // fn(year,month,date);
+    fn(2016,2,1);
+
+
+
+
+    for(var i=0; i<10; i++){
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

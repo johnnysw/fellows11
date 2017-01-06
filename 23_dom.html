@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: red;
+        margin-left: 100px;
+        margin-top:100px;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <p id="p">ppppppppp</p>
+        <p id="p1">p1p1p1p1p1</p>
+    </div>
+
+    <input id='text' type="text">
+
+<script>
+    var oDiv = document.getElementById('div1');
+    oDiv.onmousedown = function(e){
+        console.log(e.offsetX+", "+ e.offsetY);
+        console.log(e.clientX+", "+ e.clientY);
+    }
+    var oText = document.getElementById('text');
+
+    oText.onkeyup = function(e){
+        console.log(e.keyCode);
+    }
+
+
+//    var oP = document.createElement('p');
+//    oP.innerHTML='p2p2p2p2p2p2';
+////    oDiv.insertBefore(oP,oP1);
+//    oDiv.replaceChild(oP,oP1);
+
+
+//    console.log(oDiv.lastElementChild);
+//    console.log(oDiv.firstElementChild);
+//    console.log(oDiv.previousElementSibling);
+
+//    console.log(oDiv.nodeName);
+//    console.log(oDiv.lastChild.nodeName);
+//    console.log(oDiv.nodeValue);
+//    console.log(oDiv.lastChild.nodeValue);
+   // oDiv.setAttribute('class','div2');
+   // console.log(oDiv.getAttribute('class'));
+    //offsetParent;
+
+    function next(elem){
+        do{
+            elem = elem.nextSibling;
+        }while(elem && elem.nodeType != 1);
+        return elem;
+    }
+
+    function prev(elem){
+        do{
+            elem = elem.previousSibling;
+        }while(elem && elem.nodeType != 1);
+        return elem;
+    }
+
+    function first(elem){
+       elem = elem.firstChild;
+//        if(elem && elem.nodeType == 1) {
+//            return elem;
+//        }else{
+//            return next(elem);
+//        }
+        return elem && elem.nodeType == 1?elem:next(elem);
+    }
+
+    function last(elem){
+        elem = elem.lastChild;
+        return elem && elem.nodeType == 1?elem:prev(elem);
+    }
+
+
+    //console.log(oDiv.lastElementChild);
+    //    console.log(oDiv.firstElementChild);
+    //    console.log(oDiv.previousElementSibling);
+</script>
+</body>
+</html>

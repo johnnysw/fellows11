@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /*-webkit-transition: width 1s ease;*/
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+
+
+</div>
+<script>
+    var div = document.getElementById('div1');
+
+    var img = new Image();
+
+    img.src = '1.jpg';
+
+    img.onload = function(){
+
+        console.log(img.width);
+    }
+
+
+    div.appendChild(img);
+
+</script>
+</body>
+</html>

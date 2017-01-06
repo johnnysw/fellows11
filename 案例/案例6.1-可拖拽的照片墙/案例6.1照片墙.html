@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width:660px;
+            margin: 0 auto;
+        }
+        #container img{
+            width: 200px;
+            height: 150px;
+            float: left;
+            margin: 10px;
+        }
+        #container img.collide{
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="images/1.jpg"/>
+        <img src="images/2.jpg"/>
+        <img src="images/3.jpg"/>
+        <img src="images/4.jpg"/>
+        <img src="images/5.jpg"/>
+        <img src="images/6.jpg"/>
+        <img src="images/7.jpg"/>
+        <img src="images/8.jpg"/>
+        <img src="images/9.jpg"/>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+//1.布局转化 float=> absolute
+//2.绑定拖拽
+//3.碰撞检测
+//4.最近元素
+//5.交换位置
+        var oContainer = document.getElementById('container');
+        var aImg = oContainer.getElementsByTagName('img');
+        var zIndex = 1;
+        var collide  = [];
+        var nearElem = null;
+
+        for(var i=aImg.length-1; i>=0; i--){
+            aImg[i].style.left = aImg[i].offsetLeft +"px";
+            aImg[i].style.top = aImg[i].offsetTop+"px";
+            aImg[i].style.position = 'absolute';
+            aImg[i].style.margin = 0;
+            drag(aImg[i]);
+            aImg[i].pos = {
+                left:aImg[i].offsetLeft,
+                top:aImg[i].offsetTop
+            }
+        }
+
+        function drag(elem){
+            elem.onmousedown = function(e){
+                e = e || window.event;
+                var iDisX = e.clientX - elem.offsetLeft;
+                var iDisY = e.clientY - elem.offsetTop;
+                elem.style.zIndex = zIndex++;
+                document.onmousemove = function (e) {
+                    e = e || window.event;
+
+                    var iLeft = e.clientX - iDisX;
+                    var iTop = e.clientY - iDisY;
+
+                    elem.style.left = iLeft +"px";
+                    elem.style.top = iTop +"px";
+                    collide = [];
+
+                    for(var i=0; i<aImg.length; i++){
+                        if(aImg[i] == elem){
+                            continue;
+                        }
+                        //碰撞检测
+                        var isClo = checkCollide(elem,aImg[i]);
+                        if(isClo){
+                            collide.push(aImg[i]);
+                        }
+                        //清除所有红色边框样式
+                        aImg[i].className = '';
+                    }
+
+                    if(collide.length >0){
+                        //找到距离最近的图片
+                        nearElem = nearest(elem);
+                        //距离最近的图片添加红色边框样式
+                        nearElem.className = 'collide';
+                    }else{
+                        nearElem = null;
+                    }
+                    //console.log(collide);
+                    return false;
+                }
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+
+                    if(nearElem){
+                        animate(elem,nearElem.pos);
+                        animate(nearElem,elem.pos);
+
+                        var pos = elem.pos;
+                        elem.pos = nearElem.pos;
+                        nearElem.pos = pos;
+
+                        nearElem.className = '';
+                        nearElem = null;
+                    }else{
+                        animate(elem,elem.pos);
+                    }
+                }
+
+            }
+
+        }
+        /*
+
+        elem  拖拽的元素
+        taregt 碰撞目标
+        return true false
+         */
+        function checkCollide(elem,target){
+            var elemR = elem.offsetLeft + elem.offsetWidth,
+                    elemB = elem.offsetTop + elem.offsetHeight,
+                    elemT = elem.offsetTop,
+                    elemL = elem.offsetLeft;
+            var targetR = target.offsetLeft + target.offsetWidth,
+                    targetB = target.offsetTop + target.offsetHeight,
+                    targetT = target.offsetTop,
+                    targetL = target.offsetLeft;
+
+            if(elemR < targetL || elemB < targetT || elemL > targetR || elemT > targetB){
+                //没碰撞
+                return false;
+            }else{
+                return true;
+            }
+        }
+        /*
+         找出距离最近的
+         elem  拖拽的元素
+         return 最近的图片
+         */
+        function nearest(elem){
+            var minDis = 99999;   //初始最小距离
+            var index = -1;  //初始的索引
+
+            for(var i=0; i<collide.length; i++){
+                var x = collide[i].offsetLeft - elem.offsetLeft;
+                var y = collide[i].offsetTop - elem.offsetTop;
+                var iDis = Math.sqrt(x*x +y*y);
+                if(iDis < minDis){
+                    minDis = iDis;
+                    index = i;
+                }
+            }
+            return collide[index];
+
+        }
+
+
+
+    </script>
+</body>
+</html>

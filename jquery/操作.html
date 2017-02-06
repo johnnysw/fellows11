@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <!--<div>-->
+        <!--<p>pppppppp</p>-->
+    <!--</div>-->
+    <!--<div id="aa">-->
+        <!--22222-->
+        <!--<p>ppppppppp</p>-->
+    <!--</div>-->
+
+    <div class="bb">
+        bbbbbbbbbb
+        <p>pppppp</p>
+    </div>
+
+
+    <div id="aa">
+        aaaaaa
+    </div>
+
+    <div class="container">
+        <div class="inner first">Hello</div>
+        <div class="outer first">Hello</div>
+        <div class="inner second">And</div>
+        <div class="inner third">Goodbye</div>
+    </div>
+
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $('.first').replaceAll(".third");
+    //$('p').unwrap();
+//    $('.bb').detach();
+    //$('#bb').html("alert(1111);");
+//    $('.bb').wrapAll("<div id='new'></div>");
+
+//    var oP = document.createElement('p');
+//    oP.innerHTML='pppppppp';
+//    var oDiv = document.createElement('div');
+//    oDiv.appendChild(oP);
+
+//    var oDiv = document.getElementById('div1');
+//    oDiv.appendChild(oP);
+
+    //var op = $('<div><p>ppppppppp</p></div>').css('background','red');
+
+//console.log(op);
+    //$('#div1').append(op).css('border','2px solid #000');
+
+    //$('.aa').appendTo('.bb');
+    //$('#bb').append($('#aa').clone().attr('id',"aaaa"));
+
+</script>
+</body>
+</html>

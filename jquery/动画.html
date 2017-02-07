@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /*display: none;*/
+        }
+        #div2{
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<button id="btn">click</button>
+<div id="div2">
+    <p>pppppp</p>
+    <h1>hhhh1h1h1</h1>
+    <h1 id="h11">hhhhhhhh</h1>
+</div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var $div2 = $('#div2').css('background','green')
+        var $h1 = $('h1',$div2).css('background','red');
+
+//        console.log($h1.index($('#h11')));
+        console.log($h1.toArray());
+        $h1.each(function(){
+
+        });
+
+        $.each($h1,function(){
+
+        });
+
+//        $('#div1').animate({
+//            width:400,
+//            opacity:0.5
+//        },3000,function(){
+//            alert(11111);
+//        }).animate({
+//            height:400
+//        },3000,function(){
+//            alert(2222);
+//        });
+
+//        $('#div1').hide(1000,'linear',function(){
+//            alert(11111);
+//        });
+//        $('#div1').show(1000,'linear',function(){
+//            alert(11111);
+//        });
+
+        $('#btn').on('click',function(){
+//            $('#div1').toggle(1000,'linear',function(){
+//                alert(11111);
+//            });
+           //$('#div1').stop(true,false);
+//            $('#div1').fadeTo(1000,0.5,function(){
+//                alert(11111);
+//            });
+            $('#div1').slideToggle(1000);
+        });
+    });
+</script>
+</body>
+</html>

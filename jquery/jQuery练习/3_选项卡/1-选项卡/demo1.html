@@ -11,6 +11,7 @@
 	$(function(){
 		$('li').on('click',function(){
 			$(this).addClass('selected').siblings().removeClass('selected');
+			//var index1 = $('li').index($(this));
 			var index = $(this).index();
 //			$('.tab_box div').eq(index).show().siblings().hide();
 			$('.tab_box div:eq('+index+')').show().siblings().hide();

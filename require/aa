@@ -1,0 +1,9 @@
+require
+模块化开发
+相比函数，粒度更大的模块开发。
+aa.js  bb.js
+1.解决模块开发
+2.解决文件的依赖
+AMD 和 CMD
+requirejs 和 seajs
+

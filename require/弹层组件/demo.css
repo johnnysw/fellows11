@@ -1,0 +1,46 @@
+
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.demo-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50px;
+    /*bottom: 0;*/
+    left: 0;
+    /*right: 0;*/
+    /*background: red;*/
+}
+.demo-mask{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+.demo-content{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    background: #fff;
+    left:50%;
+    margin-left: -200px;
+    top:50%;
+    margin-top: -150px;
+}
+.demo-title{
+    height: 30px;
+    line-height: 30px;
+    background: #ccc;
+    padding:0 10px;
+}
+.title{
+    float: left;
+}
+.close{
+    float: right;
+}

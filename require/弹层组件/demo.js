@@ -18,7 +18,9 @@ require(['jquery','dialog'],function($,Dialog){
         });
     });
     $('#btn2').on('click',function(){
-        arr.pop().close();
+        if(arr.length > 0){
+            arr.pop().close();
+        }
     });
 
 });

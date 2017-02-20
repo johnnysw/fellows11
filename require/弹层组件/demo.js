@@ -7,8 +7,10 @@
 //    }
 //});
 require(['jquery','dialog'],function($,Dialog){
+    var arr = [];
     $('#btn').on('click',function(){
         var dialog = new Dialog();
+        arr.push(dialog);
         dialog.open({
             width:500,
             title:"登录",
@@ -16,6 +18,7 @@ require(['jquery','dialog'],function($,Dialog){
         });
     });
     $('#btn2').on('click',function(){
-        dialog.close();
+        arr.pop().close();
     });
+
 });

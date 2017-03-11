@@ -1,4 +1,5 @@
-$color:#fff !default;
+@import "common";
+$color:#eee !default;
 $name:background;
 $imgsrc: img;
 
@@ -72,6 +73,82 @@ body{
 .gg{
   @extend %ee;
 }
+
+@function add($a,$b){
+
+  @return $a + $b;
+}
+/*注释*/
+//注释2
+.hh{
+  //width:add(30px,40);
+  width:abs(-3);
+  background: str-index('solid', 'o');
+  color:$color;
+  //font:20px/1.5 Arial;
+  a{
+    color: $color;
+    &:hover{
+      color: darken($color,10%);
+    }
+  }
+
+}
+
+
+/*.arrow{
+  width: 0;
+  height: 0;
+  border-color:red transparent transparent transparent;
+  border-width:20px;
+  border-style: solid dotted dotted dotted;
+}*/
+@mixin arrow($dir,$w,$col){
+  width:0;
+  height: 0;
+  border-width:$w;
+  border-style: solid;
+  @if($dir == 'top'){
+    border-color: transparent transparent $col transparent;
+  }
+  @if($dir == 'bottom'){
+    border-color:$col transparent transparent transparent;
+  }
+  @if($dir == 'right'){
+    border-color:transparent transparent transparent $col;
+  }
+  @if($dir == 'left'){
+    border-color:transparent $col transparent transparent;
+  }
+}
+.arrow{
+  @include arrow(top,50px,red);
+
+}
+$icons:error warning right;
+
+@each $i in $icons{
+  .#{$i}{
+    background: url("images/#{$i}.png");
+  }
+}
+
+@for $i from 1 through 6{
+  .aa-#{$i}{
+    width:$i*30px;
+  }
+}
+$i : 10;
+@while($i<15){
+  .bb-#{$i}{
+    width:$i*30px;
+  }
+  $i:$i+1;
+}
+
+
+
+
 
 
 

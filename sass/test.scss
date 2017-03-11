@@ -45,14 +45,35 @@ body{
   #{$attr}:$val;
 }
 .bb{
-  @include css3(border-radius);
+  @include css3(border-radius,5px);
 }
 
 .cc{
   width:300px;
   height: 500px;
   @include css3(border-radius,5px);
+  a{
+    text-decoration: none;
+  }
 }
+
+.dd{
+  width:200px;
+  @extend .cc;
+}
+%ee{
+  width: 200px;
+  height: 200px;
+}
+
+.ff{
+  @extend %ee;
+}
+.gg{
+  @extend %ee;
+}
+
+
 
 
 

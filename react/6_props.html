@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+
+    <script type="text/babel">
+        /*
+        *
+        *
+        * */
+        var SubComponent = React.createClass({
+            render : function(){
+                console.log("render");
+                return (
+                        <h1>{this.props.data}</h1>
+                );
+            }
+        });
+        var Component = React.createClass({
+            render : function(){
+                var str = "abc";
+                return (
+                    <SubComponent data={str}/>
+                );
+            }
+        });
+        var Component2 = React.createClass({
+            render : function(){
+                var str = "def";
+                return (
+                        <SubComponent data={str}/>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <div>
+                <Component/>
+                <Component2/>
+            </div>,
+            document.getElementById("container")
+        );
+    </script>
+</body>
+</html>

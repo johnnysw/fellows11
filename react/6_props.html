@@ -12,31 +12,35 @@
     <script src="react-15.3.1/browser.js"></script>
 
     <script type="text/babel">
-        /*
-        *
-        *
-        * */
         var SubComponent = React.createClass({
+            getDefaultProps : function(){
+                return {
+                    arr : []
+                };
+            },
             render : function(){
-                console.log("render");
+                var msg = [];
+                this.props.arr.forEach(function(value, index){
+                    msg.push(<h1 key={index}>{value}</h1>);
+                });
                 return (
-                        <h1>{this.props.data}</h1>
+                        <div>{msg}</div>
                 );
             }
         });
         var Component = React.createClass({
-            render : function(){
-                var str = "abc";
+            render: function(){
+                var arr = [1, 2, 3];
                 return (
-                    <SubComponent data={str}/>
+                    <SubComponent arr={arr}/>
                 );
             }
         });
+
         var Component2 = React.createClass({
-            render : function(){
-                var str = "def";
+            render: function(){
                 return (
-                        <SubComponent data={str}/>
+                        <SubComponent/>
                 );
             }
         });
